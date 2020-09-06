@@ -42,7 +42,7 @@ BANCO DE DADOS:
 
 **Cronograma de Entregas**
 - [x] Definição do Projeto e Elaboração do Cronograma
-- [ ] Entrega1: Setup do ambiente desenv; Criação do banco de dados; Inicio do desenvolvimento do backend;
-- [ ] Entrega2: Criação dos controllers e rotas dos principais cadastros do administrador de condomínio (Condominio, Bloco, Unidade_Particular, Area_Comum, Agendamento e Avisos);
-- [ ] Entrega3: Criação dos controllers e rotas dos cadastros dos condominos e demais (Condominio, Pessoas_Autorizadas, Autorizacao, Reuniao, Pauta, Votacao, Opcoes e Voto);
-- [ ] Entrega4: Video apresentando o projeto até o momento. Fontes e documentação  (GRAU B)
+- [ ] **Entrega 1:** Setup do ambiente desenv; Criação do banco de dados; Inicio do desenvolvimento do backend;
+- [ ] **Entrega 2:** Criação dos controllers e rotas dos principais cadastros do administrador de condomínio (Condominio, Bloco, Unidade_Particular, Area_Comum, Agendamento e Avisos);
+- [ ] **Entrega 3:** Criação dos controllers e rotas dos cadastros dos condominos e demais (Condominio, Pessoas_Autorizadas, Autorizacao, Reuniao, Pauta, Votacao, Opcoes e Voto);
+- [ ] **Entrega 4:** Video apresentando o projeto até o momento. Fontes e documentação  (GRAU B)
