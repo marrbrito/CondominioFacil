@@ -25,10 +25,12 @@ export default class CreatePCreateCondomino1599258142513essoaAutorizada159924396
           {
             name: 'dt_nascimento',
             type: 'date',
+            isNullable: true,
           },
           {
             name: 'sexo',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'celular',

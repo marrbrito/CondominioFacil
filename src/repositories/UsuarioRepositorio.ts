@@ -9,6 +9,10 @@ class UsuarioRepository extends Repository<Usuario> {
       where: { nome },
     });
 
+    if (findUsuario) {
+      delete findUsuario.password;
+    }
+
     return findUsuario || null;
   }
 }

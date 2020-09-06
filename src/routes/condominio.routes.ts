@@ -5,7 +5,6 @@ import { getRepository } from 'typeorm';
 import CreateCondominioService from '../services/CreateCondominioService';
 import Condominio from '../models/Condominio';
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
-// import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const condominioRouter = Router();
 
