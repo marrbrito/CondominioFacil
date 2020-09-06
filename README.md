@@ -36,9 +36,10 @@ Assim, nasce o aplicativo Condomínio Fácil que facilitará a comunicação ent
 > - Babel;
 
 > FERRAMENTAS:
-> - Editor de Text: VSCode
+> - Editor de Texto: VSCode
 > - Cliente BD: DBeaver;
-> - Docker;
+> - Ambiente: Docker;
+> - APIRest Teste: Insomnia;
 
 **Cronograma de Entregas**
 - [x] Definição do Projeto e Elaboração do Cronograma
