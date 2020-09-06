@@ -7,7 +7,6 @@ import Usuario from '../models/Usuario';
 
 interface Request {
   nome: string;
-  condomino_id: string;
   email: string;
   password: string;
   tipo: string;
@@ -16,7 +15,6 @@ interface Request {
 class CreateUsuarioService {
   public async execute({
     nome,
-    condomino_id,
     email,
     password,
     tipo,
@@ -35,7 +33,6 @@ class CreateUsuarioService {
 
     const usuario = usersRepository.create({
       nome,
-      condomino_id,
       email,
       password: hashedPassword,
       tipo,

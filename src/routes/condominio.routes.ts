@@ -18,7 +18,7 @@ condominioRouter.get('/', async (request, response) => {
   return response.json(condominio);
 });
 
-// --Receber a requisição, chamar outro arquivo e devolver uma resposta
+// --Receber a requisição, chamar o service e devolver uma resposta
 condominioRouter.post('/', async (request, response) => {
   try {
     const { nome, cep, endereco, telefone, email, sindico } = request.body;

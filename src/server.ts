@@ -4,7 +4,6 @@ import 'reflect-metadata';
 import express from 'express';
 import 'express-async-error';
 
-// import AppError from './errors/AppError';
 import routes from './routes';
 
 import './database';

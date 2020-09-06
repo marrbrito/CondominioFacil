@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 import { getRepository } from 'typeorm';
 
-// import AppError from '../errors/AppError';
 import Condominio from '../models/Condominio';
 
 interface Request {

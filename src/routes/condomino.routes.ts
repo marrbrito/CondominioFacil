@@ -34,13 +34,13 @@ condominoRouter.post('/', async (request, response) => {
       sexo,
       celular,
       email,
+      usuario_id: request.user.id,
     });
 
     const updateUsuarioCondService = new UpdateUsuarioCondService();
 
     const user = await updateUsuarioCondService.execute({
-      user_id: request.user.id,
-      condomino_id: condomino.condomino_id,
+      usuario_id: request.user.id,
     });
 
     const nomeUsuario = user.nome;

@@ -5,11 +5,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToOne,
-  JoinColumn,
 } from 'typeorm';
-
-import Condomino from './Condomino';
 
 @Entity('usuario')
 class Usuario {
@@ -27,13 +23,6 @@ class Usuario {
 
   @Column()
   email: string;
-
-  @Column()
-  condomino_id: string;
-
-  @ManyToOne(() => Condomino)
-  @JoinColumn({ name: 'condomino_id' })
-  condomino: Condomino;
 
   @CreateDateColumn()
   dt_criacao: Date;

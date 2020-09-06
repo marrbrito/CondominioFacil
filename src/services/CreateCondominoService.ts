@@ -11,6 +11,7 @@ interface Request {
   sexo: string;
   celular: string;
   email: string;
+  usuario_id: string;
 }
 
 class CreateCondominoService {
@@ -21,6 +22,7 @@ class CreateCondominoService {
     sexo,
     celular,
     email,
+    usuario_id,
   }: Request): Promise<Condomino> {
     const condominoRepository = getRepository(Condomino);
 
@@ -39,6 +41,7 @@ class CreateCondominoService {
       sexo,
       celular,
       email,
+      usuario_id,
     });
 
     await condominoRepository.save(condomino);
