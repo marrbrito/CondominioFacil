@@ -22,8 +22,8 @@ Assim, nasce o aplicativo Condomínio Fácil que facilitará a comunicação ent
 
 **Tecnologias:**
 
-BANCO DE DADOS:
-- PostgreSQL;
+> BANCO DE DADOS:
+> - PostgreSQL;
 
 > BACK-END:
 > - NodeJS;
