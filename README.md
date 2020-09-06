@@ -22,8 +22,8 @@ Assim, nasce o aplicativo Condomínio Fácil que facilitará a comunicação ent
 
 **Tecnologias:**
 
-> BANCO DE DADOS:
-> - PostgreSQL;
+BANCO DE DADOS:
+- PostgreSQL;
 
 > BACK-END:
 > - NodeJS;
@@ -40,3 +40,9 @@ Assim, nasce o aplicativo Condomínio Fácil que facilitará a comunicação ent
 > - Cliente BD: DBeaver;
 > - Docker;
 
+**Cronograma de Entregas**
+- [x] Definição do Projeto e Elaboração do Cronograma
+- [ ] Entrega1: Setup do ambiente desenv; Criação do banco de dados; Inicio do desenvolvimento do backend;
+- [ ] Entrega2: Criação dos controllers e rotas dos principais cadastros do administrador de condomínio (Condominio, Bloco, Unidade_Particular, Area_Comum, Agendamento e Avisos);
+- [ ] Entrega3: Criação dos controllers e rotas dos cadastros dos condominos e demais (Condominio, Pessoas_Autorizadas, Autorizacao, Reuniao, Pauta, Votacao, Opcoes e Voto);
+- [ ] Entrega4: Video apresentando o projeto até o momento. Fontes e documentação  (GRAU B)
