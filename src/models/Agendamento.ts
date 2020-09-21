@@ -24,7 +24,7 @@ class Agendamento {
   condominio_id: string;
 
   @ManyToOne(() => Area_Comum)
-  @JoinColumn({ name: 'area_id, condominio_id' })
+  @JoinColumn([{ name: 'area_id' }, { name: 'condominio_id' }])
   area_comum: Area_Comum;
 
   @Column()
@@ -36,6 +36,9 @@ class Agendamento {
 
   @Column()
   dt_reserva: Date;
+
+  @Column()
+  turno: 'primeiro' | 'segundo' | 'terceiro';
 
   @CreateDateColumn()
   dt_criacao: Date;

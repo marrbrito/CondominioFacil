@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 
 import Bloco from './Bloco';
+import Condomino from './Condomino';
 
 @Entity('unidade_particular')
 class Unidade_Particular {
@@ -23,14 +24,18 @@ class Unidade_Particular {
   bloco_id: string;
 
   @ManyToOne(() => Bloco)
-  @JoinColumn({ name: 'condominio_id, bloco_id' })
+  @JoinColumn([{ name: 'bloco_id' }, { name: 'condominio_id' }])
   condominio: Bloco;
 
   @Column()
   identificador: string;
 
   @Column()
-  condomino: string;
+  condomino_id: string;
+
+  @ManyToOne(() => Condomino)
+  @JoinColumn({ name: 'condomino_id' })
+  condomino: Condomino;
 
   @CreateDateColumn()
   dt_criacao: Date;
