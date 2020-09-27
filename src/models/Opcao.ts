@@ -11,19 +11,19 @@ import {
 
 import Votacao from './Votacao';
 
-@Entity('Opcao')
+@Entity('opcao')
 class Opcao {
   @PrimaryGeneratedColumn('uuid')
   opcao_id: string;
 
   @Column()
-  pauta_id: string;
-
-  @Column()
   votacao_id: string;
 
+  @Column()
+  pauta_id: string;
+
   @ManyToOne(() => Votacao)
-  @JoinColumn({ name: 'pauta_id, votacao_id' })
+  @JoinColumn([{ name: 'votacao_id' }, { name: 'pauta_id' }])
   votacao: Votacao;
 
   @Column()

@@ -17,7 +17,7 @@ class Pessoa_Autorizada {
   pessoa_aut_id: string;
 
   @Column()
-  undade_id: string;
+  unidade_id: string;
 
   @Column()
   condominio_id: string;
@@ -26,7 +26,11 @@ class Pessoa_Autorizada {
   bloco_id: string;
 
   @ManyToOne(() => Unidade_Particular)
-  @JoinColumn({ name: 'unidade_id, condominio_id, bloco_id' })
+  @JoinColumn([
+    { name: 'unidade_id' },
+    { name: 'condominio_id' },
+    { name: 'bloco_id' },
+  ])
   unidade_particular: Unidade_Particular;
 
   @Column()
