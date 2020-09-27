@@ -44,6 +44,6 @@ Assim, nasce o aplicativo Condomínio Fácil que facilitará a comunicação ent
 **Cronograma de Entregas**
 - [x] Definição do Projeto e Elaboração do Cronograma
 - [x] **Entrega 1:** Setup do ambiente desenv; Criação do banco de dados; Inicio do desenvolvimento do backend;
-- [ ] **Entrega 2:** Criação dos controllers e rotas dos principais cadastros do administrador de condomínio (Condominio, Bloco, Unidade_Particular, Area_Comum, Agendamento e Avisos);
-- [ ] **Entrega 3:** Criação dos controllers e rotas dos cadastros dos condominos e demais (Condominio, Pessoas_Autorizadas, Autorizacao, Reuniao, Pauta, Votacao, Opcoes e Voto);
+- [x] **Entrega 2:** Criação dos controllers e rotas dos principais cadastros do administrador de condomínio (Condominio, Bloco, Unidade_Particular, Area_Comum, Agendamento e Avisos);
+- [x] **Entrega 3:** Criação dos controllers e rotas dos cadastros dos condominos e demais (Condominio, Pessoas_Autorizadas, Autorizacao, Reuniao, Pauta, Votacao, Opcoes e Voto);
 - [ ] **Entrega 4:** Video apresentando o projeto até o momento. Fontes e documentação  (GRAU B)
