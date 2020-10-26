@@ -46,4 +46,5 @@ Assim, nasce o aplicativo Condomínio Fácil que facilitará a comunicação ent
 - [x] **Entrega 1:** Setup do ambiente desenv; Criação do banco de dados; Inicio do desenvolvimento do backend;
 - [x] **Entrega 2:** Criação dos controllers e rotas dos principais cadastros do administrador de condomínio (Condominio, Bloco, Unidade_Particular, Area_Comum, Agendamento e Avisos);
 - [x] **Entrega 3:** Criação dos controllers e rotas dos cadastros dos condominos e demais (Condominio, Pessoas_Autorizadas, Autorizacao, Reuniao, Pauta, Votacao, Opcoes e Voto);
-- [ ] **Entrega 4:** Video apresentando o projeto até o momento. Fontes e documentação  (GRAU B)
+- [x] **Entrega 3.1:** Video apresentando o projeto até o momento. Fontes e documentação  (GRAU B)
+- [x] **Entrega 4:** Cronograma atualizado e Desenvolvimento do login de usuário ao sistema e a cadastro de condomino
