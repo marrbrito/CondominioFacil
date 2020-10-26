@@ -1,11 +1,12 @@
 /* eslint-disable camelcase */
-import { getRepository } from 'typeorm';
 import { hash } from 'bcryptjs';
 
 // import AppError from '../errors/AppError';
+import IUsuarioRepositorio from '../repositories/IUsuarioRepositorio';
+
 import Usuario from '../models/Usuario';
 
-interface Request {
+interface IRequest {
   nome: string;
   email: string;
   password: string;
@@ -13,17 +14,15 @@ interface Request {
 }
 
 class CreateUsuarioService {
+  constructor(private usuarioRepositorio: IUsuarioRepositorio) {}
+
   public async execute({
     nome,
     email,
     password,
     tipo,
-  }: Request): Promise<Usuario> {
-    const usersRepository = getRepository(Usuario);
-
-    const checkUsuarioExists = await usersRepository.findOne({
-      where: { email },
-    });
+  }: IRequest): Promise<Usuario> {
+    const checkUsuarioExists = await this.usuarioRepositorio.findByEmail(email);
 
     if (checkUsuarioExists) {
       throw new Error('Email já cadastrado.');
@@ -31,14 +30,12 @@ class CreateUsuarioService {
 
     const hashedPassword = await hash(password, 8);
 
-    const usuario = usersRepository.create({
+    const usuario = await this.usuarioRepositorio.create({
       nome,
       email,
       password: hashedPassword,
       tipo,
     });
-
-    await usersRepository.save(usuario);
 
     return usuario;
   }

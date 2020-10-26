@@ -1,43 +1,44 @@
-import { getRepository } from 'typeorm';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
 // import AppError from '../errors/AppError';
-import User from '../models/Usuario';
 import authConfig from '../config/auth';
 
-interface Request {
+import IUsuarioRepositorio from '../repositories/IUsuarioRepositorio';
+import Usuario from '../models/Usuario';
+
+interface IRequest {
   email: string;
   password: string;
 }
 
-interface Response {
-  user: User;
+interface IResponse {
+  usuario: Usuario;
   token: string;
 }
 
 class AuthenticateUserService {
-  public async execute({ email, password }: Request): Promise<Response> {
-    const userRepository = getRepository(User);
+  constructor(private usuarioRepositorio: IUsuarioRepositorio) {}
 
-    const user = await userRepository.findOne({ where: { email } });
+  public async execute({ email, password }: IRequest): Promise<IResponse> {
+    const usuario = await this.usuarioRepositorio.findByEmail(email);
 
-    if (!user) {
+    if (!usuario) {
       throw new Error('Email/password combinação incorreta');
     }
 
-    const passwordMached = await compare(password, user.password);
+    const passwordMached = await compare(password, usuario.password);
 
     if (!passwordMached) {
       throw new Error('Email/password combinação incorreta');
     }
 
     const token = sign({}, authConfig.jwt.secret, {
-      subject: user.id,
+      subject: usuario.id,
       expiresIn: authConfig.jwt.expiresIn,
     });
 
-    return { user, token };
+    return { usuario, token };
   }
 }
 

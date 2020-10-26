@@ -1,0 +1,17 @@
+<svg width="231" height="134" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect x="0" id="svg_23" fill="#FF9000" height="2.00226" width="230.033" y="106.073"/>
+  <rect x="0" id="svg_24" fill="#FF9000" height="2.00226" width="230.033" y="25.9825"/>
+  <ellipse cx="0" cy="0" id="svg_33" fill="#999591" transform="matrix(1,0,0,-1,210.947,67.0288) " ry="3.00339" rx="3.01354"/>
+  <ellipse cx="0" cy="0" id="svg_34" fill="#999591" transform="matrix(1,0,0,-1,19.0857,67.0288) " ry="3.00339" rx="3.01354"/>
+  <text stroke="null" transform="matrix(0.6063182541448553,0,0,0.5129018366999053,15.121174124469261,13.855096884388004) " xml:space="preserve" text-anchor="start" font-family="Arvo, sans-serif" font-size="24" id="svg_39" y="13.52291" x="92.30076" stroke-opacity="null" stroke-width="0" fill="#cccccc">Condomínio</text>
+  <text font-style="italic" stroke="null" transform="matrix(0.5086562348698649,0,0,0.33543774591282177,33.58103119223658,44.16317095591118) " xml:space="preserve" text-anchor="start" font-family="Arvo, sans-serif" font-size="24" id="svg_41" y="233.06019" x="8.34866" stroke-opacity="null" stroke-width="0" fill="#cccccc">Administração &amp; Sistemas</text>
+  <text stroke="null" transform="matrix(1.9041856056841806,0,0,2.094396528510647,-118.0844013619465,-170.05060646977304) " xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="24" id="svg_49" y="121.44847" x="88.66292" stroke-opacity="null" stroke-width="0" fill="#f4f4f4">FÁCIL</text>
+ </g>
+</svg>

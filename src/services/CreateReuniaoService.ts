@@ -18,8 +18,6 @@ class CreateReuniaoService {
   }: Request): Promise<Reuniao> {
     const reuniaoRepository = getRepository(Reuniao);
 
-    console.log(data);
-
     const dt_reuniao = startOfDay(data);
 
     const checkReuniaoExists = await reuniaoRepository.findOne({

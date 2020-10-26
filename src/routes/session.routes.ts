@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 // --Receber a requisição, chamar outro arquivo e devolver uma resposta
+import UsuarioRepositorio from '../repositories/UsuarioRepositorio';
 import AuthenticateUserService from '../services/AuthenticateUserService';
 
 const sessionsRouter = Router();
@@ -9,16 +10,20 @@ sessionsRouter.post('/', async (request, response) => {
   try {
     const { email, password } = request.body;
 
-    const authenticateUserService = new AuthenticateUserService();
+    const usuarioRepositorio = new UsuarioRepositorio();
 
-    const { user, token } = await authenticateUserService.execute({
+    const authenticateUserService = new AuthenticateUserService(
+      usuarioRepositorio,
+    );
+
+    const { usuario, token } = await authenticateUserService.execute({
       email,
       password,
     });
 
-    delete user.password;
+    // delete usuario.password;
 
-    return response.json({ user, token });
+    return response.json({ usuario, token });
   } catch (err) {
     return response.status(400).json({ error: err.message });
   }
