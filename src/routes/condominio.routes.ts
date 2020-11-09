@@ -3,13 +3,15 @@ import { Router } from 'express';
 import { getRepository } from 'typeorm';
 
 import CreateCondominioService from '../services/CreateCondominioService';
+import UpdateCondominioService from '../services/UpdateCondominioService';
+import DeleteCondominioService from '../services/DeleteCondominioService';
 import Condominio from '../models/Condominio';
-import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+// import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const condominioRouter = Router();
 
 // --Para realizar operacoes tem que estar autenticado!
-condominioRouter.use(ensureAuthenticated);
+// condominioRouter.use(ensureAuthenticated);
 
 condominioRouter.get('/', async (request, response) => {
   const condominioRepository = getRepository(Condominio);
@@ -32,6 +34,46 @@ condominioRouter.post('/', async (request, response) => {
       telefone,
       email,
       sindico,
+    });
+
+    return response.json(condominio);
+  } catch (err) {
+    return response.status(400).json({ error: err.message });
+  }
+});
+
+condominioRouter.put('/:id', async (request, response) => {
+  try {
+    const { id } = request.params;
+
+    const { nome, cep, endereco, telefone, email, sindico } = request.body;
+
+    const updateCondominio = new UpdateCondominioService();
+
+    const condominio = await updateCondominio.execute({
+      id,
+      nome,
+      cep,
+      endereco,
+      telefone,
+      email,
+      sindico,
+    });
+
+    return response.json(condominio);
+  } catch (err) {
+    return response.status(400).json({ error: err.message });
+  }
+});
+
+condominioRouter.delete('/:id', async (request, response) => {
+  try {
+    const { id } = request.params;
+
+    const deleteCondominio = new DeleteCondominioService();
+
+    const condominio = await deleteCondominio.execute({
+      id,
     });
 
     return response.json(condominio);

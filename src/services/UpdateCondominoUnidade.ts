@@ -8,12 +8,14 @@ import Condomino from '../models/Condomino';
 interface Request {
   unidade_id: string;
   condomino_id: string;
+  identificador: string;
 }
 
 class UpdateCondominioUnidadeService {
   public async execute({
     unidade_id,
     condomino_id,
+    identificador,
   }: Request): Promise<Unidade_Particular> {
     const unidadeRepository = getRepository(Unidade_Particular);
 
@@ -34,6 +36,7 @@ class UpdateCondominioUnidadeService {
     }
 
     unidade.condomino_id = condomino_id;
+    unidade.identificador = identificador;
 
     await unidadeRepository.save(unidade);
 

@@ -17,6 +17,7 @@ import pautaRouter from './pauta.routes';
 import votacaoRouter from './votacao.routes';
 import opcaoRouter from './opcao.routes';
 import votoRouter from './voto.routes';
+import passwordRouter from './password.routes';
 
 const routes = Router();
 
@@ -36,5 +37,6 @@ routes.use('/pauta', pautaRouter);
 routes.use('/votacao', votacaoRouter);
 routes.use('/opcao', opcaoRouter);
 routes.use('/voto', votoRouter);
+routes.use('/password', passwordRouter);
 
 export default routes;

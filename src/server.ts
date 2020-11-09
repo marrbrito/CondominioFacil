@@ -7,6 +7,7 @@ import 'express-async-error';
 import routes from './routes';
 
 import './database';
+import './container';
 
 const app = express();
 
