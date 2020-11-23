@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { FiEdit3, FiTrash } from 'react-icons/fi';
 
+import { BiBuildingHouse } from 'react-icons/bi';
+
 import { Container } from './styles';
 
 interface IBloco {
@@ -57,11 +59,11 @@ const Bloco: React.FC<IProps> = ({
 
           <button
             type="button"
-            className="chama"
+            className="icon2"
             onClick={() => handleChamaUnidade(bloco.condominio_id,bloco.bloco_id)}
             data-testid={`chama-unidade-${bloco.bloco_id}`}
           >
-            Unidades
+            <BiBuildingHouse size={20} />
           </button>
 
         </div>

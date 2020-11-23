@@ -49,7 +49,15 @@ const Signin: React.FC = () => {
           password: data.password,
         });
 
-        history.push('/dashboard');
+        const tipoUsuario = JSON.parse(localStorage.getItem('@CFacil:usuario')!);
+
+        //---Dependendo do tipo de usuario carregar a pagina certa
+        if (tipoUsuario.tipo === "Administrador") {
+          history.push('/dashboard');
+        } else {
+          history.push('/dashuser');
+        }
+
       } catch (err) {
         // ---Se o erro foi originado da validacao do formulario
         if (err instanceof Yup.ValidationError) {

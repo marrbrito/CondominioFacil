@@ -64,7 +64,7 @@ export const Container = styled.div<ICondominioProps>`
     background: #e4e4eb;
     border-radius: 0px 0px 8px 8px;
 
-    div.icon-container {
+    div.iconx-container {
       display: flex;
 
       button {
@@ -83,6 +83,39 @@ export const Container = styled.div<ICondominioProps>`
           margin-left: 6px;
         }
       }
+    }
+
+    div.icon-container {
+      display: flex;
+
+      button {
+        padding: 10px;
+        border-radius: 8px;
+        display: flex;
+        border: none;
+        transition: 0.1s;
+
+        & + button {
+          margin-left: 6px;
+        }
+      }
+
+      button.icon {
+        background: #fff;
+
+        svg {
+          color: #3d3d4d;
+        }
+      }
+
+      button.icon2 {
+        background: #ff9000;
+
+        svg {
+          color: #fff;
+        }
+      }
+
     }
 
     div.chama-container {

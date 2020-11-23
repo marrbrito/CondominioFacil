@@ -12,7 +12,7 @@ interface IHeaderProps {
   openModal: () => void;
 }
 
-const Header: React.FC<IHeaderProps> = ({ openModal }) => {
+const HeaderBloco: React.FC<IHeaderProps> = ({ openModal }) => {
   const { signOut, usuario } = useAuth();
 
   return(
@@ -77,4 +77,4 @@ const Header: React.FC<IHeaderProps> = ({ openModal }) => {
   </HeaderContent>
 );*/
 
-export default Header;
+export default HeaderBloco;

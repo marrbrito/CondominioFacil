@@ -6,9 +6,9 @@ import api from '../services/api';
 interface User {
   id: string;
   nome: string;
+  email: string;
   tipo: string;
 }
-
 interface AuthState {
   token: string;
   usuario: User;
@@ -50,10 +50,10 @@ const AuthProvider: React.FC = ({ children }) => {
 
     const { token, usuario } = response.data;
 
+    api.defaults.headers.authorization = `Bearer ${token}`;
+
     localStorage.setItem('@CFacil:token', token);
     localStorage.setItem('@CFacil:usuario', JSON.stringify(usuario));
-
-    api.defaults.headers.authorization = `Bearer ${token}`;
 
     setData({ token, usuario });
   }, []);

@@ -4,17 +4,29 @@ import { getRepository } from 'typeorm';
 import { parseISO } from 'date-fns';
 
 import CreateReuniaoService from '../services/CreateReuniaoService';
+import UpdateReuniaoService from '../services/UpdateReuniaoService';
+import DeleteReuniaoService from '../services/DeleteReuniaoService';
 import Reuniao from '../models/Reuniao';
-import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+// import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const reuniaoRouter = Router();
 
 // --Para realizar operacoes tem que estar autenticado!
-reuniaoRouter.use(ensureAuthenticated);
+// reuniaoRouter.use(ensureAuthenticated);
 
 reuniaoRouter.get('/', async (request, response) => {
   const reuniaoRepository = getRepository(Reuniao);
-  const reuniao = await reuniaoRepository.find();
+  let reuniao: Reuniao[];
+
+  if (request.query.condominio_id) {
+    reuniao = await reuniaoRepository.find({
+      where: {
+        condominio_id: request.query.condominio_id,
+      },
+    });
+  } else {
+    reuniao = await reuniaoRepository.find();
+  }
 
   return response.json(reuniao);
 });
@@ -32,6 +44,44 @@ reuniaoRouter.post('/', async (request, response) => {
       condominio_id,
       descricao,
       data: dataparsed,
+    });
+
+    return response.json(reuniao);
+  } catch (err) {
+    return response.status(400).json({ error: err.message });
+  }
+});
+
+reuniaoRouter.put('/:id', async (request, response) => {
+  try {
+    const { id } = request.params;
+
+    const { descricao, dt_reuniao } = request.body;
+
+    const parsedDate = parseISO(dt_reuniao);
+
+    const updateReuniao = new UpdateReuniaoService();
+
+    const reuniao = await updateReuniao.execute({
+      id,
+      descricao,
+      dt_reuniao: parsedDate,
+    });
+
+    return response.json(reuniao);
+  } catch (err) {
+    return response.status(400).json({ error: err.message });
+  }
+});
+
+reuniaoRouter.delete('/:id', async (request, response) => {
+  try {
+    const { id } = request.params;
+
+    const deleteReuniao = new DeleteReuniaoService();
+
+    const reuniao = await deleteReuniao.execute({
+      id,
     });
 
     return response.json(reuniao);

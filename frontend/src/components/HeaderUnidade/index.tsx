@@ -37,7 +37,7 @@ const HeaderUnidade: React.FC<IHeaderProps> = ({ openModal }) => {
 
     <Link to="/dashboard">
             <FiArrowDownLeft />
-            Voltar para dashboard
+            Voltar para Dashboard
     </Link>
 
     <nav>

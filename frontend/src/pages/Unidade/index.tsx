@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch, useHistory } from "react-router-dom";
 
 import {
   Content,
@@ -30,6 +30,8 @@ interface UnidadeParams {
 const Unidade: React.FC  = () => {
 
   const { signOut, usuario } = useAuth();
+
+  const history = useHistory();
 
   const { params } = useRouteMatch<UnidadeParams>();
 
@@ -81,6 +83,7 @@ const Unidade: React.FC  = () => {
 
     const response = await api.put(`/unidade/${unidade_id}`, {
       identificador,
+      condomino_id: null,
     });
 
     setUnidades(state => {
@@ -98,6 +101,10 @@ const Unidade: React.FC  = () => {
 
     const filteredUnidades = unidades.filter(unidade => unidade.unidade_id !== unidade_id);
     setUnidades(filteredUnidades);
+  }
+
+  async function handleVolta(condominio_id: string): Promise<void> {
+    history.push(`/${condominio_id}/bloco`);
   }
 
   function toggleModal(): void {
@@ -136,6 +143,7 @@ const Unidade: React.FC  = () => {
               unidade={unidade}
               handleDelete={handleDeleteUnidade}
               handleEditUnidade={handleEditUnidade}
+              handleVolta={handleVolta}
             />
           ))}
     </Content>

@@ -43,7 +43,7 @@ export const Container = styled.div<ICondominioProps>`
       margin-top: 16px;
     }
 
-    .price {
+    .valor_locacao {
       font-style: normal;
       font-size: 24px;
       line-height: 34px;

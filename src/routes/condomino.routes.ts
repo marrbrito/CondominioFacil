@@ -6,16 +6,26 @@ import CreateCondominoService from '../services/CreateCondominoService';
 import UpdateUsuarioCondService from '../services/UpdateUsuarioCondService';
 import Condomino from '../models/Condomino';
 
-import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+// import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const condominoRouter = Router();
 
 // --Para realizar operacoes tem que estar autenticado!
-condominoRouter.use(ensureAuthenticated);
+// condominoRouter.use(ensureAuthenticated);
 
 condominoRouter.get('/', async (request, response) => {
   const condominoRepository = getRepository(Condomino);
-  const condomino = await condominoRepository.find();
+  let condomino: Condomino[];
+
+  if (request.query.usuario_id) {
+    condomino = await condominoRepository.find({
+      where: {
+        usuario_id: request.query.usuario_id,
+      },
+    });
+  } else {
+    condomino = await condominoRepository.find();
+  }
 
   return response.json(condomino);
 });
@@ -23,7 +33,15 @@ condominoRouter.get('/', async (request, response) => {
 // --Receber a requisição, chamar outro arquivo e devolver uma resposta
 condominoRouter.post('/', async (request, response) => {
   try {
-    const { cpf, nome, dt_nascimento, sexo, celular, email } = request.body;
+    const {
+      cpf,
+      nome,
+      dt_nascimento,
+      sexo,
+      celular,
+      email,
+      usuario_id,
+    } = request.body;
 
     const createCondomino = new CreateCondominoService();
 
@@ -34,13 +52,13 @@ condominoRouter.post('/', async (request, response) => {
       sexo,
       celular,
       email,
-      usuario_id: request.user.id,
+      usuario_id,
     });
 
     const updateUsuarioCondService = new UpdateUsuarioCondService();
 
     const user = await updateUsuarioCondService.execute({
-      usuario_id: request.user.id,
+      usuario_id,
     });
 
     const nomeUsuario = user.nome;

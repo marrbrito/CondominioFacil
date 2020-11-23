@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { FiEdit3, FiTrash } from 'react-icons/fi';
+import { FiEdit3, FiTrash, FiArrowLeft } from 'react-icons/fi';
 
 import { Container } from './styles';
 
@@ -15,12 +15,14 @@ interface IProps {
   unidade: IUnidade;
   handleDelete: (unidade_id: string) => {};
   handleEditUnidade: (unidade: IUnidade) => void;
+  handleVolta: (condominio: string) => void;
 }
 
 const Unidade: React.FC<IProps> = ({
   unidade,
   handleDelete,
   handleEditUnidade,
+  handleVolta,
 }: IProps) => {
   const [isAvailable, setIsAvailable] = useState(true);
 
@@ -53,6 +55,15 @@ const Unidade: React.FC<IProps> = ({
             data-testid={`remove-unidade-${unidade.unidade_id}`}
           >
             <FiTrash size={20} />
+          </button>
+
+          <button
+            type="button"
+            className="icon"
+            onClick={() => handleVolta(unidade.condominio_id)}
+            data-testid={`remove-unidade-${unidade.unidade_id}`}
+          >
+            <FiArrowLeft size={20} />
           </button>
 
         </div>

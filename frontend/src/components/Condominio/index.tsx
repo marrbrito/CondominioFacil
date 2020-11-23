@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 
-import { FiEdit3, FiTrash } from 'react-icons/fi';
+import { FiEdit3, FiTrash, FiLayers } from 'react-icons/fi';
+
+import { ImWarning } from 'react-icons/im';
+
+import { GiFireplace } from 'react-icons/gi';
+
+import { SiGooglehangoutsmeet } from 'react-icons/si';
 
 import { Container } from './styles';
 
@@ -21,6 +27,7 @@ interface IProps {
   handleChamaBloco: (condominio: string) => void;
   handleChamaAreaComum: (condominio: string) => void;
   handleChamaAviso: (condominio: string) => void;
+  handleChamaReuniao: (condominio: string) => void;
 }
 
 const Condominio: React.FC<IProps> = ({
@@ -30,6 +37,7 @@ const Condominio: React.FC<IProps> = ({
   handleChamaBloco,
   handleChamaAreaComum,
   handleChamaAviso,
+  handleChamaReuniao,
 }: IProps) => {
   const [isAvailable, setIsAvailable] = useState(true);
 
@@ -69,30 +77,40 @@ const Condominio: React.FC<IProps> = ({
 
           <button
             type="button"
-            className="chama"
+            className="icon2"
             onClick={() => handleChamaBloco(condominio.condominio_id)}
             data-testid={`chama-bloco-${condominio.condominio_id}`}
           >
-            Bloco
+            <FiLayers size={20} />
           </button>
 
           <button
             type="button"
-            className="chama"
+            className="icon2"
             onClick={() => handleChamaAreaComum(condominio.condominio_id)}
             data-testid={`chama-area-${condominio.condominio_id}`}
           >
-            Área Comum
+            <GiFireplace size={20} />
           </button>
 
           <button
             type="button"
-            className="chama"
+            className="icon2"
             onClick={() => handleChamaAviso(condominio.condominio_id)}
             data-testid={`chama-aviso-${condominio.condominio_id}`}
           >
-            Avisos
+            <ImWarning size={20} />
           </button>
+
+          <button
+            type="button"
+            className="icon2"
+            onClick={() => handleChamaReuniao(condominio.condominio_id)}
+            data-testid={`chama-aviso-${condominio.condominio_id}`}
+          >
+            <SiGooglehangoutsmeet size={20} />
+          </button>
+
 
         </div>
       </section>
